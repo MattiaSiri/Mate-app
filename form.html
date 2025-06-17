@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mate – Questionario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
+    <header class="flex justify-between items-center px-6 py-4 shadow-sm fixed top-0 left-0 right-0 bg-white z-50">
+      <div class="text-xl font-bold text-purple-600">Mate</div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html#features" class="hover:text-purple-600">Features</a>
+        <a href="index.html#about" class="hover:text-purple-600">About</a>
+        <a href="index.html#how" class="hover:text-purple-600">How It Works</a>
+        <a href="index.html#support" class="hover:text-purple-600">Support</a>
+      </nav>
+      <a
+        href="index.html"
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-2 rounded-lg shadow-lg hover:from-purple-700 hover:to-indigo-700 transform hover:scale-105 transition"
+      >
+        Home
+      </a>
+    </header>
+
+    <section class="pt-32 pb-16 px-6 bg-gray-50 min-h-screen">
+      <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Questionario di Compatibilità</h2>
+        <div class="mb-6">
+          <div class="h-2 bg-gray-200 rounded">
+            <div id="progressBar" class="h-2 bg-purple-600 rounded transition-all" style="width:0%"></div>
+          </div>
+        </div>
+        <form action="https://script.google.com/macros/s/AKfycbyQrEdnvnvO6gWd5Js0QohG--Qax6OPMKMwJt1oS9pvwUB3AfMHs7HzKIJnNa927ukQgg/exec" method="POST" id="quizForm" class="space-y-6">
+          <div class="step space-y-4">
+            <label class="block">
+              <span class="text-gray-700">Orari abituali</span>
+              <select name="orari" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="mattina">Mattiniero</option>
+                <option value="sera">Notturno</option>
+                <option value="variabile">Flessibili</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Livello di pulizia</span>
+              <select name="pulizia" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="basso">Basso</option>
+                <option value="medio">Medio</option>
+                <option value="alto">Alto</option>
+              </select>
+            </label>
+            <div class="flex justify-end">
+              <button type="button" class="next-btn bg-purple-600 text-white px-4 py-2 rounded">Avanti</button>
+            </div>
+          </div>
+
+          <div class="step space-y-4 hidden">
+            <label class="block">
+              <span class="text-gray-700">Lavori da casa?</span>
+              <select name="wfh" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="si">Sì</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Fumi?</span>
+              <select name="fumo" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="no">No</option>
+                <option value="si">Sì</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Hai animali?</span>
+              <select name="animali" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="no">No</option>
+                <option value="si">Sì</option>
+              </select>
+            </label>
+            <div class="flex justify-between">
+              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
+              <button type="button" class="next-btn bg-purple-600 text-white px-4 py-2 rounded">Avanti</button>
+            </div>
+          </div>
+
+          <div class="step space-y-4 hidden">
+            <label class="block">
+              <span class="text-gray-700">Quanto sei socievole?</span>
+              <select name="sociale" class="mt-1 block w-full border-gray-300 rounded-md">
+                <option value="molto">Molto socievole</option>
+                <option value="medio">Equilibrato</option>
+                <option value="poco">Riservato</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Che coinquilino cerchi?</span>
+              <textarea name="descrizione" rows="3" class="mt-1 block w-full border-gray-300 rounded-md"></textarea>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Nome</span>
+              <input name="nome" type="text" required class="mt-1 block w-full border-gray-300 rounded-md">
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Email</span>
+              <input name="email" type="email" required class="mt-1 block w-full border-gray-300 rounded-md">
+            </label>
+            <div class="flex justify-between">
+              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
+              <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded">Invia</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const steps = document.querySelectorAll('.step');
+      let currentStep = 0;
+      const progressBar = document.getElementById('progressBar');
+
+      function updateProgress() {
+        const percent = (currentStep / (steps.length - 1)) * 100;
+        progressBar.style.width = percent + '%';
+      }
+
+      function showStep(index) {
+        steps.forEach((step, i) => {
+          step.classList.toggle('hidden', i !== index);
+        });
+        updateProgress();
+      }
+
+      document.querySelectorAll('.next-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+          }
+        });
+      });
+
+      document.querySelectorAll('.prev-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+          }
+        });
+      });
+
+      showStep(currentStep);
+    });
+    </script>
+  </body>
+</html>
