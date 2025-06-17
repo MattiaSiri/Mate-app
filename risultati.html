@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risultati Coinquilini</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-[#1a1e40]" style="font-family: 'Inter', sans-serif;">
+  <header class="py-10 text-center">
+    <h1 class="text-3xl font-bold mb-2">Abbiamo trovato dei coinquilini compatibili!</h1>
+    <p class="text-lg text-gray-600 mb-4">Ecco chi potrebbe essere il tuo prossimo MATE</p>
+    <div id="counter" class="text-sm text-gray-500 mb-6">Hai 2 profili disponibili oggi</div>
+    <div class="max-w-sm mx-auto">
+      <input type="text" placeholder="Cerca..." class="w-full border rounded-md p-2" />
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <div class="bg-white rounded-xl shadow p-4 relative transition transform hover:scale-105">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Giulia" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <div class="font-semibold mb-1">Giulia, 24 – Bologna</div>
+      <div class="text-sm text-green-600 mb-2">💚 87% compatibile <span class="ml-2 bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded">Top Match 💎</span></div>
+      <div class="flex flex-wrap gap-1 mb-3 text-sm">
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🎵 Music lover</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🧹 Ordinata</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🕺 Estroversa</span>
+      </div>
+      <div class="flex -space-x-2 mb-3">
+        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/31.jpg" alt="" />
+        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/32.jpg" alt="" />
+        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/33.jpg" alt="" />
+      </div>
+      <a href="#" class="block text-center bg-[#3b82f6] text-white rounded-md py-2">Visualizza profilo</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white rounded-xl shadow p-4 relative transition transform hover:scale-105">
+      <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Marco" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <div class="font-semibold mb-1">Marco, 23 – Milano</div>
+      <div class="text-sm text-green-600 mb-2">💚 82% compatibile</div>
+      <div class="flex flex-wrap gap-1 mb-3 text-sm">
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🚴‍♂️ Sportivo</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🎮 Gamer</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">😎 Socievole</span>
+      </div>
+      <div class="flex -space-x-2 mb-3">
+        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/34.jpg" alt="" />
+      </div>
+      <a href="#" class="block text-center bg-[#3b82f6] text-white rounded-md py-2">Visualizza profilo</a>
+    </div>
+
+    <!-- Card 3 Premium -->
+    <div class="bg-white rounded-xl shadow p-4 relative overflow-hidden blur-sm">
+      <img src="https://randomuser.me/api/portraits/women/70.jpg" alt="Laura" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <div class="font-semibold mb-1">Laura, 25 – Firenze</div>
+      <div class="text-sm text-green-600 mb-2">💚 90% compatibile</div>
+      <div class="flex flex-wrap gap-1 mb-3 text-sm">
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🧘‍♀️ Tranquilla</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🍰 Pasticcera</span>
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-sm">
+        🔒 Profilo Premium
+      </div>
+    </div>
+
+    <!-- Card 4 Premium -->
+    <div class="bg-white rounded-xl shadow p-4 relative overflow-hidden blur-sm">
+      <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Luca" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <div class="font-semibold mb-1">Luca, 26 – Roma</div>
+      <div class="text-sm text-green-600 mb-2">💚 88% compatibile</div>
+      <div class="flex flex-wrap gap-1 mb-3 text-sm">
+        <span class="px-2 py-0.5 bg-gray-100 rounded">🎸 Musicista</span>
+        <span class="px-2 py-0.5 bg-gray-100 rounded">📚 Studioso</span>
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-sm">
+        🕒 Disponibile tra 24h
+      </div>
+    </div>
+
+  </main>
+
+  <div class="text-center my-10">
+    <a href="/abbonamento.html" class="inline-block bg-gradient-to-r from-[#3b82f6] to-[#1a1e40] text-white px-6 py-3 rounded-lg shadow-lg hover:from-blue-500 hover:to-[#1a1e40] transform hover:scale-105 transition">Sblocca tutti</a>
+  </div>
+</body>
+</html>
