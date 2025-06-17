@@ -268,8 +268,10 @@
         function finish(){
           saveData(currentStep);
           localStorage.setItem('mateForm', JSON.stringify(formData));
+          alert('Dati salvati!');
           window.location.href = 'risultati.html';
         }
+
       });
     </script>
   </body>
