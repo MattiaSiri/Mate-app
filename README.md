@@ -8,3 +8,10 @@ Questa versione utilizza Tailwind CSS e include una grafica migliorata con pulsa
 
 È stata aggiunta una pagina `form.html` con un questionario interattivo per raccogliere maggiori informazioni sugli utenti che desiderano trovare un coinquilino compatibile.
 La pagina è raggiungibile dal pulsante **Sign Up** nella homepage.
+
+## Autoprofilazione "Chi sei tu?"
+
+È disponibile la pagina `autoprofilazione.html` con una breve sequenza di 5 step
+visuali per definire il proprio stile di vita. Le risposte vengono salvate in
+`localStorage` all'interno di `formData.autoprofilazione` e possono essere
+richiamate dal resto del form.
