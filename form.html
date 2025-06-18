@@ -113,7 +113,21 @@
               <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
             </div>
           </div>
-          <!-- Step 7 -->
+          <!-- Step 7: Build your Mate -->
+          <div class="step space-y-4 hidden">
+            <h3 class="text-lg font-semibold text-center">Build your Mate</h3>
+            <p id="mateIntro" class="text-sm text-center text-gray-600">Lui è Marco... potrebbe essere il tuo prossimo coinquilino. Come vorresti che fosse?</p>
+            <div class="flex justify-center">
+              <img id="mateAvatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar coinquilino ideale" class="w-24 h-24 rounded-full shadow mb-4" />
+            </div>
+            <div id="traitWrapper" class="flex flex-wrap gap-2 justify-center"></div>
+            <p id="traitError" class="text-red-500 text-sm hidden text-center">Puoi selezionare al massimo 5 tratti</p>
+            <div class="flex justify-between">
+              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
+              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
+            </div>
+          </div>
+          <!-- Step 8 -->
           <div class="step space-y-4 hidden">
             <span class="text-gray-700">Scegli il profilo che preferisci</span>
             <div class="flex flex-col sm:flex-row gap-4">
@@ -136,7 +150,7 @@
               <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
             </div>
           </div>
-          <!-- Step 8 -->
+          <!-- Step 9 -->
           <div class="step space-y-4 hidden">
             <h3 class="text-lg font-semibold">Riepilogo</h3>
             <ul class="text-sm space-y-1" id="summary"></ul>
@@ -167,6 +181,28 @@
           hobbyWrapper.appendChild(btn);
         });
 
+        const traits = ['\uD83E\uDDFC Pulito','\uD83C\uDF99\uFE0F Tranquillo','\uD83E\uDD73 Socievole','\uD83C\uDFC3 Sportivo','\uD83C\uDF73 Ama cucinare','\uD83D\uDCDA Studio intenso','\uD83C\uDFE0 Ama stare a casa','\uD83D\uDEAA Riservato','\uD83D\uDECF\uFE0F Notturno','\u2600\uFE0F Mattiniero'];
+        const traitWrapper = document.getElementById('traitWrapper');
+        const traitError = document.getElementById('traitError');
+        traits.forEach(t=>{
+          const b=document.createElement('button');
+          b.type='button';
+          b.textContent=t;
+          b.className='trait-btn px-3 py-1 rounded-full border bg-gray-100 hover:bg-blue-50';
+          b.dataset.value=t;
+          traitWrapper.appendChild(b);
+        });
+
+        const mateNames=['Marco','Chiara','Luca','Sara','Giulia','Andrea'];
+        const randomName=mateNames[Math.floor(Math.random()*mateNames.length)];
+        const gender=Math.random()<0.5?'men':'women';
+        const num=Math.floor(Math.random()*90);
+        const mateAvatar=document.getElementById('mateAvatar');
+        mateAvatar.src=`https://randomuser.me/api/portraits/${gender}/${num}.jpg`;
+        mateAvatar.alt=`${randomName} avatar`;
+        document.getElementById('mateIntro').textContent=`Lui \u00E8 ${randomName}... potrebbe essere il tuo prossimo coinquilino. Come vorresti che fosse?`;
+
+
         let currentStep = 0;
         showStep(currentStep);
 
@@ -174,6 +210,7 @@
         document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', prevStep));
         document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', selectOption));
         hobbyWrapper.addEventListener('click', toggleHobby);
+        traitWrapper.addEventListener('click', toggleTrait);
         document.querySelectorAll('.choose-btn').forEach(btn => btn.addEventListener('click', () => chooseProfile(btn.dataset.value)));
         document.getElementById('ordine').addEventListener('input', e => {
           document.getElementById('ordineVal').textContent = e.target.value;
@@ -228,6 +265,10 @@
               formData.coinquilino = Array.from(document.querySelectorAll('.pref:checked')).map(c=>c.value);
               break;
             case 6:
+              formData.preferenzeIdeali = Array.from(document.querySelectorAll('.trait-btn.active')).map(b=>b.dataset.value);
+              formData.nomeCoinquilinoIdeale = randomName;
+              break;
+            case 7:
               // preferito salvato con chooseProfile
               break;
           }
@@ -247,6 +288,21 @@
           }
         }
 
+        function toggleTrait(e){
+          if(e.target.classList.contains('trait-btn')){
+            if(e.target.classList.contains('active')){
+              e.target.classList.remove('bg-blue-600','text-white','border-blue-600','active');
+              traitError.classList.add('hidden');
+            }else{
+              if(document.querySelectorAll('.trait-btn.active').length>=5){
+                traitError.classList.remove('hidden');
+                return;
+              }
+              e.target.classList.add('bg-blue-600','text-white','border-blue-600','active');
+            }
+          }
+        }
+
         function chooseProfile(name){
           formData.preferito = name;
           localStorage.setItem('preferito', name);
@@ -254,7 +310,7 @@
         }
 
         function updateSummary(){
-          saveData(6);
+          saveData(7);
           const ul = document.getElementById('summary');
           ul.innerHTML = '';
           ul.innerHTML += `<li><strong>Nome:</strong> ${formData.nome || ''}</li>`;
@@ -263,6 +319,8 @@
           ul.innerHTML += `<li><strong>Hobby:</strong> ${(formData.hobby||[]).join(', ')}</li>`;
           ul.innerHTML += `<li><strong>Descrizione:</strong> ${formData.descrizione || ''}</li>`;
           ul.innerHTML += `<li><strong>Preferenze:</strong> ${(formData.coinquilino||[]).join(', ')}</li>`;
+          ul.innerHTML += `<li><strong>Coinquilino ideale:</strong> ${formData.nomeCoinquilinoIdeale || ''}</li>`;
+          ul.innerHTML += `<li><strong>Tratti ideali:</strong> ${(formData.preferenzeIdeali||[]).join(', ')}</li>`;
           ul.innerHTML += `<li><strong>Profilo scelto:</strong> ${formData.preferito || ''}</li>`;
         }
 
