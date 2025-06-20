@@ -11,6 +11,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+
     <style>
       @keyframes fadeInUp {
         0% { opacity: 0; transform: translateY(20px); }
@@ -24,7 +31,7 @@
       .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
     </style>
   </head>
-  <body class="bg-white text-[#1a1e40]" style="font-family: 'Inter', sans-serif;">
+  <body class="scroll-smooth bg-white text-[#1a1e40]" style="font-family: 'Poppins', 'Inter', sans-serif;">
 
     <!-- Navbar -->
     <header class="flex justify-between items-center px-6 py-4 shadow-sm fixed top-0 left-0 right-0 bg-white z-50">
@@ -45,22 +52,26 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden pt-40 pb-20">
-      <div class="absolute inset-y-0 right-0 w-full md:w-1/2 bg-gradient-to-tr from-blue-50 to-white -z-10"></div>
-      <div class="max-w-7xl mx-auto px-6 md:flex md:items-center md:justify-between gap-12">
+
+    <section class="bg-gradient-to-br from-white via-blue-50 to-blue-100 pt-40 pb-24">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 items-center px-6 gap-12">
         <!-- Text -->
-        <div class="md:w-1/2 text-center md:text-left space-y-6 animate-fade-in-up">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">Il tuo prossimo coinquilino ti sta aspettando</h1>
-          <p class="text-lg text-gray-600">Mate ti aiuta a trovare la persona giusta con cui convivere, basandosi su compatibilità reali.</p>
-          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+        <div class="space-y-6 text-center md:text-left animate-fade-in-up" style="font-family: 'Poppins', 'Inter', sans-serif;">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1a1e40]">Il tuo prossimo coinquilino ti sta aspettando</h1>
+          <p class="text-lg text-gray-600">Con Mate trovi solo coinquilini compatibili. Scopri chi è davvero adatto a vivere con te.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+
+
             <a href="form.html" class="bg-[#3b82f6] hover:bg-blue-600 text-white px-8 py-3 rounded-xl shadow-lg transition">Inizia ora</a>
             <a href="#how-it-works" class="px-8 py-3 rounded-xl border border-[#3b82f6] text-[#3b82f6] bg-white shadow hover:bg-[#3b82f6]/10 transition">Guarda come funziona</a>
           </div>
         </div>
 
         <!-- Immagine a destra -->
-        <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center animate-slide-in-right">
-          <img src="Mockup.png" alt="Mate App Preview" class="w-80 md:w-[28rem] rounded-3xl shadow-2xl">
+
+        <div class="flex justify-center animate-slide-in-right">
+          <img src="hero-illustration.svg" alt="Coinquilini che si salutano" class="w-80 md:w-[28rem] rounded-3xl shadow-2xl" />
+
         </div>
       </div>
     </section>
