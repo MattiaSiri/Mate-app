@@ -26,8 +26,14 @@
         0% { opacity: 0; transform: translateX(40px); }
         100% { opacity: 1; transform: translateX(0); }
       }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
       .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
       .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+      .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+      .delay-200 { animation-delay: 0.2s; }
     </style>
   </head>
   <body class="scroll-smooth bg-white text-[#1a1e40]" style="font-family: 'Poppins', 'Inter', sans-serif;">
@@ -74,12 +80,17 @@
 
       </div>
 </section>
-    <!-- Intro Section -->
-    <section class="relative bg-gradient-to-b from-white via-blue-50 to-blue-100 py-24">
-      <img src="main/telefoni.png" alt="Telefoni" class="w-full max-h-[600px] mx-auto object-contain" />
-      <div class="absolute inset-0 flex flex-col items-center justify-center text-center font-sans text-[#1a1e40] px-4">
-        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Basta usare mille siti.</h2>
-        <p class="text-lg sm:text-2xl">Con Mate trovi tutto in un unico posto.</p>
+    <!-- Sezione immagine hero con testo centrale - ottimizzata -->
+    <section class="relative bg-gradient-to-b from-white via-blue-50 to-blue-100 min-h-[90vh] flex items-center justify-center overflow-hidden font-sans">
+      <img src="main/telefoni.png" alt="Telefoni" class="absolute inset-0 w-full h-full object-contain md:object-cover pointer-events-none opacity-100" />
+
+      <div class="relative z-10 text-center px-4">
+        <h2 class="text-4xl sm:text-5xl font-bold text-[#1a1e40] drop-shadow-sm mb-4 animate-fade-in">
+          Basta usare mille siti.
+        </h2>
+        <p class="text-lg sm:text-2xl text-[#1a1e40] drop-shadow-sm animate-fade-in delay-200">
+          Con Mate trovi tutto in un unico posto.
+        </p>
       </div>
     </section>
     <!-- How It Works -->
