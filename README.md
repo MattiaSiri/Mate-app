@@ -15,3 +15,8 @@ La pagina è raggiungibile dal pulsante **Sign Up** nella homepage.
 visuali per definire il proprio stile di vita. Le risposte vengono salvate in
 `localStorage` all'interno di `formData.autoprofilazione` e possono essere
 richiamate dal resto del form.
+
+## Componente React "HowItWorks"
+
+Nella cartella `components` è ora presente un esempio di componente React che implementa la sezione "Come funziona Mate" utilizzando Tailwind CSS e le animazioni di AOS.
+Le immagini sono caricate dalla cartella `public` e sono le stesse utilizzate nella versione HTML della landing.
