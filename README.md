@@ -18,5 +18,5 @@ richiamate dal resto del form.
 
 ## Componente React "HowItWorks"
 
-Nella cartella `components` è ora presente un esempio di componente React che implementa la sezione "Come funziona Mate" utilizzando Tailwind CSS e le animazioni di AOS.
-Le immagini sono caricate dalla cartella `public` e sono le stesse utilizzate nella versione HTML della landing.
+Nella cartella `components` sono presenti i componenti React dedicati alla sezione "Come funziona Mate".
+`HowItWorks.jsx` offre un esempio basilare di layout, mentre `HowItWorksSection.jsx` include onde decorative SVG, icone da `react-icons` e animazioni AOS per un effetto più curato.
