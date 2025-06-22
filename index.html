@@ -99,27 +99,43 @@
 
     
     <!-- How It Works -->
-    <section id="how-it-works" class="py-20 px-6 bg-white text-[#1a1e40]">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-2 font-sans">Come funziona Mate</h2>
-        <p class="text-lg text-center mb-10 font-sans">Scopri come trovare il coinquilino giusto in pochi click.</p>
+    <section id="how-it-works" class="relative w-full bg-purple-50 py-16 overflow-hidden">
+      <!-- Onda superiore -->
+      <div class="absolute top-0 left-0 w-full -translate-y-full pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 104" class="w-full h-20 fill-current text-purple-50 rotate-180">
+          <path d="M0 67 C 273,183 822,-40 1440,74 V 104 H 0 V 67 Z" />
+        </svg>
+      </div>
+
+      <!-- Contenuto centrale -->
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-2">Come funziona</h2>
+        <p class="text-lg text-gray-600 mb-12">Scopri come utilizzare il nostro servizio in tre semplici passi.</p>
+
         <div class="grid gap-8 md:grid-cols-3">
-          <div class="text-center space-y-4 animate-fade-in-up transition duration-500 hover:-translate-y-1">
-            <img src="hiw0.png" alt="Crea il tuo profilo" class="mx-auto w-32 h-32 object-contain" />
-            <h3 class="font-bold font-sans">Crea il tuo profilo</h3>
-            <p class="text-sm text-gray-700 font-sans">Aggiungi foto, informazioni e cosa cerchi da un coinquilino.</p>
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 p-6 flex flex-col items-center text-center">
+            <img src="https://via.placeholder.com/80" alt="" class="mb-4" />
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Crea il tuo profilo</h3>
+            <p class="text-gray-600 text-sm">Inserisci le informazioni essenziali e inizia subito.</p>
           </div>
-          <div class="text-center space-y-4 animate-fade-in-up transition duration-500 hover:-translate-y-1">
-            <img src="hiw1.png" alt="Compila il questionario" class="mx-auto w-32 h-32 object-contain" />
-            <h3 class="font-bold font-sans">Compila il questionario</h3>
-            <p class="text-sm text-gray-700 font-sans">Conosci i tuoi match grazie a un test psicologico.</p>
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 p-6 flex flex-col items-center text-center">
+            <img src="https://via.placeholder.com/80" alt="" class="mb-4" />
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Seleziona il servizio</h3>
+            <p class="text-gray-600 text-sm">Scegli l'editing di cui hai bisogno e carica le foto.</p>
           </div>
-          <div class="text-center space-y-4 animate-fade-in-up transition duration-500 hover:-translate-y-1">
-            <img src="hiw2.png" alt="Incontra i coinquilini compatibili" class="mx-auto w-32 h-32 object-contain" />
-            <h3 class="font-bold font-sans">Incontra i coinquilini compatibili</h3>
-            <p class="text-sm text-gray-700 font-sans">Chattate e scegliete in modo semplice con chi vivere.</p>
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 p-6 flex flex-col items-center text-center">
+            <img src="https://via.placeholder.com/80" alt="" class="mb-4" />
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">3. Scarica i file</h3>
+            <p class="text-gray-600 text-sm">Ricevi le immagini perfezionate pronte da utilizzare.</p>
           </div>
         </div>
+      </div>
+
+      <!-- Onda inferiore -->
+      <div class="absolute bottom-0 left-0 w-full translate-y-full pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 104" class="w-full h-20 fill-current text-purple-50">
+          <path d="M0 67 C 273,183 822,-40 1440,74 V 104 H 0 V 67 Z" />
+        </svg>
       </div>
     </section>
 
