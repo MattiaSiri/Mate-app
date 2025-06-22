@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body class="bg-[#0b0b28] text-gray-700 font-sans">
-  <main class="max-w-5xl mx-auto p-4">
-    <div class="bg-[#fef5f5] rounded-2xl shadow-lg p-8 md:p-12" >
-      <div class="grid gap-8 md:grid-cols-3">
+  <main class="w-full p-4">
+    <div class="bg-[#fef5f5] w-full p-8 md:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Colonna sinistra -->
         <div class="space-y-6 md:col-span-1 text-center md:text-left">
           <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Foto profilo" class="w-40 h-40 rounded-full mx-auto" />
@@ -88,18 +88,16 @@
           <!-- Sezione Compatibilità -->
           <section>
             <h3 class="font-semibold text-lg mb-2">Compatibilità</h3>
-            <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-md">
-              [GRAFICO A RAGNATELA]
-            </div>
+            <canvas id="compatibilityRadar" class="w-full h-64"></canvas>
           </section>
 
           <!-- Sezione Casa -->
           <section class="space-y-4">
             <h3 class="font-semibold text-lg">Casa</h3>
-            <div class="w-full h-40 bg-gray-200 rounded relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-24 h-24 rounded-full bg-pink-400 opacity-30"></div>
-              </div>
+            <!-- Mini mappa con area cerchiata -->
+            <div class="relative">
+              <img src="https://via.placeholder.com/600x300?text=Zona+Navigli" alt="Mappa Navigli" class="w-full rounded-md" />
+              <div class="absolute w-32 h-32 rounded-full bg-pink-400 opacity-30 top-8 left-8"></div>
             </div>
             <img src="https://via.placeholder.com/600x400" alt="Foto appartamento" class="w-full rounded-md shadow" />
             <p class="text-sm">Appartamento luminoso, 2 camere, 1 bagno condiviso, zona Bocconi.</p>
@@ -141,5 +139,32 @@
       </div>
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('compatibilityRadar').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Ordine', 'Ritmo', 'Spazi', 'Socialità', 'Comunicazione', 'Stile di vita'],
+        datasets: [{
+          label: 'Compatibilità',
+          data: [80, 70, 60, 90, 85, 75],
+          fill: true,
+          backgroundColor: 'rgba(59,130,246,0.2)',
+          borderColor: 'rgba(59,130,246,1)',
+          pointBackgroundColor: 'rgba(59,130,246,1)'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
