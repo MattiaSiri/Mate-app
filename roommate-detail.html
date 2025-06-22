@@ -8,125 +8,138 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-900" style="font-family: 'Inter', sans-serif;">
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[#3b82f6]">Mate</h1>
-    <a href="index.html" class="text-sm text-[#3b82f6] hover:underline">&larr; Torna ai risultati</a>
-  </header>
-
-  <main class="max-w-5xl mx-auto p-4 space-y-8">
-
-    <!-- Header profilo -->
-    <section class="text-center space-y-4">
-      <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Foto profilo" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto shadow-lg object-cover" />
-      <h2 class="text-2xl font-bold">Sara Bianchi</h2>
-      <p class="text-gray-600">24 anni &middot; Roma</p>
-      <span class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm">Top Match 💎 92%</span>
-    </section>
-
-
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Interessi e personalità -->
-      <section class="bg-white p-4 rounded-xl shadow space-y-4">
-        <h3 class="font-semibold text-lg">Interessi &amp; Personalità</h3>
-        <!-- Interessi -->
-        <div class="flex flex-wrap gap-2">
-          <span class="px-2 py-1 bg-gray-100 rounded text-sm">🎵 Music lover</span>
-          <span class="px-2 py-1 bg-gray-100 rounded text-sm">🎮 Gamer</span>
-          <span class="px-2 py-1 bg-gray-100 rounded text-sm">🧘 Yoga</span>
-        </div>
-        <!-- Personalità -->
-        <div class="flex flex-wrap gap-2">
-          <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Introversa</span>
-          <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Ordinata</span>
-          <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Sportiva</span>
-        </div>
-        <!-- Coinquilini -->
-        <div class="flex -space-x-2 mt-2">
-          <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/50.jpg" alt="Coinquilino" />
-          <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Coinquilino" />
-        </div>
-      </section>
-
-      <!-- Informazioni personali -->
-      <section class="bg-white p-4 rounded-xl shadow space-y-2">
-        <h3 class="font-semibold text-lg">Informazioni personali</h3>
-        <p><strong>Età:</strong> 24</p>
-        <p><strong>Città:</strong> Roma</p>
-        <p><strong>Lavoro:</strong> Graphic Designer</p>
-        <p><strong>Orari a casa:</strong> Prevalentemente sera</p>
-        <p><strong>Animali domestici:</strong> No</p>
-        <p><strong>Abitudini:</strong> Non fumatrice, 🎉 Party lover moderata</p>
-      </section>
-
-      <!-- Dettagli casa -->
-      <section class="bg-white p-4 rounded-xl shadow space-y-4 lg:col-span-2">
-        <h3 class="font-semibold text-lg">Dettagli casa</h3>
-        <p>Zona: San Lorenzo</p>
-        <!-- Mini mappa -->
-        <div class="w-full h-48 bg-gray-200 rounded relative overflow-hidden">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-32 h-32 rounded-full bg-blue-400 opacity-30"></div>
+<body class="bg-[#0b0b28] text-gray-700 font-sans">
+  <main class="max-w-5xl mx-auto p-4">
+    <div class="bg-[#fef5f5] rounded-2xl shadow-lg p-8 md:p-12" >
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Colonna sinistra -->
+        <div class="space-y-6 md:col-span-1 text-center md:text-left">
+          <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Foto profilo" class="w-40 h-40 rounded-full mx-auto" />
+          <div>
+            <h2 class="text-xl font-bold">Sara Bianchi</h2>
+            <p class="text-gray-500">24 anni &middot; Roma</p>
+            <span class="mt-1 inline-block bg-green-100 text-green-700 text-sm rounded-full px-3 py-1">Top Match 💎 87%</span>
+          </div>
+          <blockquote class="italic text-sm text-gray-600">"Mi piace la tranquillità ma amo anche condividere le serate in compagnia"</blockquote>
+          <!-- Info essenziali -->
+          <div class="bg-white rounded-lg shadow p-4 space-y-1 text-sm">
+            <p><strong>Età:</strong> 24</p>
+            <p><strong>Stato:</strong> Studentessa</p>
+            <p><strong>Zona:</strong> Navigli &ndash; Milano</p>
+            <p><strong>Animali:</strong> 🐶 Sì, ho un cane</p>
+          </div>
+          <!-- Interessi -->
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-100 rounded text-sm">🎵 Music lover</span>
+            <span class="px-2 py-1 bg-gray-100 rounded text-sm">🎮 Gamer</span>
+            <span class="px-2 py-1 bg-gray-100 rounded text-sm">🧘 Yoga</span>
+          </div>
+          <!-- Personalità tag -->
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Estroversa</span>
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Ordinata</span>
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">Non fumatore</span>
           </div>
         </div>
-        <!-- Foto casa -->
-        <img src="https://via.placeholder.com/600x300" alt="Foto della casa" class="w-full rounded" />
-        <p class="text-sm text-gray-600">Appartamento luminoso con 3 camere singole e ampio soggiorno.</p>
-      </section>
 
-      <!-- Budget e preferenze -->
-      <section class="bg-white p-4 rounded-xl shadow space-y-2">
-        <h3 class="font-semibold text-lg">Budget &amp; Preferenze</h3>
-        <p><strong>Budget mensile:</strong> €500–700</p>
-        <p><strong>Periodo ideale:</strong> Settembre 2025 – Luglio 2026</p>
-        <p><strong>Preferenze coinquilino:</strong> Età 22-30, qualsiasi genere, no animali</p>
-      </section>
-    </div>
+        <!-- Colonna destra -->
+        <div class="space-y-8 md:col-span-2">
+          <!-- Sezione Bio -->
+          <section>
+            <h3 class="font-semibold text-lg mb-2">Bio</h3>
+            <p class="leading-relaxed text-sm">
+              Mi chiamo Sara e sto cercando un appartamento da condividere con persone che amino un ambiente sereno ma non disdegnino qualche serata in compagnia. Studio design e nel tempo libero mi piace andare a concerti, praticare yoga e scoprire nuovi locali in città. Sono abituata a rispettare gli spazi comuni e credo molto nella condivisione delle pulizie.
+            </p>
+          </section>
 
+          <!-- Sezione Personalità -->
+          <section>
+            <h3 class="font-semibold text-lg mb-2">Personalità</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="text-xs">Introversa</label>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-3/4"></div></div>
+                <label class="text-xs float-right">Estroversa</label>
+              </div>
+              <div class="clear-both">
+                <label class="text-xs">Passiva</label>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-1/2"></div></div>
+                <label class="text-xs float-right">Attiva</label>
+              </div>
+              <div class="clear-both">
+                <label class="text-xs">Analitica</label>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-2/3"></div></div>
+                <label class="text-xs float-right">Creativa</label>
+              </div>
+              <div class="clear-both">
+                <label class="text-xs">Ordinata</label>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-4/5"></div></div>
+                <label class="text-xs float-right">Flessibile</label>
+              </div>
+              <div class="clear-both">
+                <label class="text-xs">Solitaria</label>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-1/3"></div></div>
+                <label class="text-xs float-right">Sociale</label>
+              </div>
+            </div>
+          </section>
 
-    <!-- Compatibilità -->
-    <section class="bg-white p-4 rounded-xl shadow space-y-4">
-      <h3 class="font-semibold text-lg">Compatibilità</h3>
-      <canvas id="compatChart" class="w-full h-64"></canvas>
-    </section>
+          <!-- Sezione Compatibilità -->
+          <section>
+            <h3 class="font-semibold text-lg mb-2">Compatibilità</h3>
+            <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-md">
+              [GRAFICO A RAGNATELA]
+            </div>
+          </section>
 
-    <!-- CTA e interazione -->
-    <section class="text-center space-y-4 pb-8">
-      <button class="bg-[#3b82f6] text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition">Invia messaggio</button>
-      <div class="flex justify-center gap-4 text-sm">
-        <button class="text-gray-500 hover:underline">Segnala</button>
-        <button class="text-gray-500 hover:underline">Nascondi profilo</button>
+          <!-- Sezione Casa -->
+          <section class="space-y-4">
+            <h3 class="font-semibold text-lg">Casa</h3>
+            <div class="w-full h-40 bg-gray-200 rounded relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-24 h-24 rounded-full bg-pink-400 opacity-30"></div>
+              </div>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Foto appartamento" class="w-full rounded-md shadow" />
+            <p class="text-sm">Appartamento luminoso, 2 camere, 1 bagno condiviso, zona Bocconi.</p>
+          </section>
+
+          <!-- Sezione Budget & Preferenze -->
+          <section class="space-y-1">
+            <h3 class="font-semibold text-lg">Budget &amp; Preferenze</h3>
+            <p class="text-sm"><strong>Budget ideale:</strong> €500&ndash;700 al mese</p>
+            <p class="text-sm"><strong>Disponibilità:</strong> Settembre &ndash; Luglio</p>
+            <p class="text-sm"><strong>Coinquilino ideale:</strong> 20&ndash;30 anni, tranquillo, non fumatore, no animali</p>
+          </section>
+
+          <!-- Sezione Frustrazioni & Goal -->
+          <section class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-1 text-red-600">Frustrazioni</h4>
+              <ul class="list-disc list-inside text-sm text-red-600 space-y-1">
+                <li>❌ Odio il disordine</li>
+                <li>❌ Non sopporto i ritardi</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1 text-green-600">Goal</h4>
+              <ul class="list-disc list-inside text-sm text-green-600 space-y-1">
+                <li>✅ Convivere serenamente</li>
+                <li>✅ Pulizia condivisa</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Sezione Azioni -->
+          <section class="pt-4 flex flex-col sm:flex-row gap-4">
+            <button class="flex-1 bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">💬 Invia messaggio</button>
+            <button class="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600">🤝 Proponiti come coinquilino</button>
+            <button class="sm:w-auto bg-red-500 text-white px-3 py-2 rounded shadow hover:bg-red-600 text-sm">Nascondi profilo</button>
+          </section>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
-
-  <script>
-    const ctx = document.getElementById('compatChart');
-    new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: ['Ordine', 'Socialità', 'Stile di vita', 'Ritmi', 'Comunicazione', 'Hobby'],
-        datasets: [{
-          label: 'Compatibilità',
-          data: [4, 5, 4, 3, 4, 5],
-          backgroundColor: 'rgba(59, 130, 246, 0.2)',
-          borderColor: '#3b82f6',
-          borderWidth: 2,
-          pointBackgroundColor: '#1a1e40'
-        }]
-      },
-      options: {
-        scales: {
-          r: {
-            beginAtZero: true,
-            max: 5,
-            ticks: { stepSize: 1 }
-          }
-        }
-      }
-    });
-  </script>
 </body>
 </html>
