@@ -1,337 +1,333 @@
 <!DOCTYPE html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mate – Profilo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-gray-50 text-gray-900" style="font-family: 'Inter', sans-serif;">
-    <header class="flex justify-between items-center px-6 py-4 shadow-sm fixed top-0 left-0 right-0 bg-white z-50">
-      <div class="text-xl font-bold text-blue-600">Mate</div>
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html#features" class="hover:text-blue-600">Features</a>
-        <a href="index.html#about" class="hover:text-blue-600">About</a>
-        <a href="index.html#how" class="hover:text-blue-600">How It Works</a>
-        <a href="team.html" class="hover:text-blue-600">Team</a>
-        <a href="index.html#support" class="hover:text-blue-600">Support</a>
-      </nav>
-      <a href="index.html" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-lg shadow-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition">Home</a>
-    </header>
-
-    <section class="pt-32 pb-16 px-6 min-h-screen">
-      <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg">
-        <div class="mb-6">
-          <div class="flex justify-between items-center mb-2 text-sm text-gray-600">
-            <span id="stepText">Step 1 di 8</span>
-            <span id="stepPercent">0%</span>
-          </div>
-          <div class="h-2 bg-gray-200 rounded">
-            <div id="progressBar" class="h-2 bg-blue-600 rounded transition-all" style="width:0%"></div>
-          </div>
-        </div>
-        <form id="multiStepForm" class="space-y-6">
-          <!-- Step 1 -->
-          <div class="step space-y-4">
-            <label class="block">
-              <span class="text-gray-700">Come ti chiami?</span>
-              <input id="nome" type="text" class="mt-1 block w-full border-gray-300 rounded-md" />
-            </label>
-            <div class="flex justify-end">
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 2 -->
-          <div class="step space-y-4 hidden">
-            <label class="block">
-              <span class="text-gray-700">Quanto sei ordinato?</span>
-              <div class="flex items-center gap-2 mt-2">
-                <span>😅</span>
-                <input id="ordine" type="range" min="0" max="10" value="5" class="flex-1" />
-                <span>🧼</span>
-              </div>
-              <p class="text-sm text-gray-600 mt-1">Valore: <span id="ordineVal">5</span></p>
-            </label>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 3 -->
-          <div class="step space-y-4 hidden">
-            <span class="text-gray-700">Ti alzi presto o tardi?</span>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button type="button" data-value="Mattiniero" class="option-btn flex-1 bg-gray-100 py-3 rounded hover:bg-blue-50">🌞 Mattiniero</button>
-              <button type="button" data-value="Notturno" class="option-btn flex-1 bg-gray-100 py-3 rounded hover:bg-blue-50">🌙 Notturno</button>
-            </div>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded" disabled>Avanti</button>
-            </div>
-          </div>
-          <!-- Step 4 -->
-          <div class="step space-y-4 hidden">
-            <span class="text-gray-700">Quali sono i tuoi hobby?</span>
-            <div id="hobbyWrapper" class="flex flex-wrap gap-2"></div>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 5 -->
-          <div class="step space-y-4 hidden">
-            <label class="block">
-              <span class="text-gray-700">Scrivi una breve descrizione di te</span>
-              <textarea id="descrizione" rows="4" maxlength="150" class="mt-1 block w-full border-gray-300 rounded-md"></textarea>
-              <p class="text-sm text-gray-600 mt-1"><span id="charCount">0</span>/150</p>
-            </label>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 6 -->
-          <div class="step space-y-4 hidden">
-            <span class="text-gray-700">Che tipo di coinquilino cerchi?</span>
-            <label class="flex items-center gap-2">
-              <input type="checkbox" value="eta" class="pref" />
-              <span>Età simile</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="checkbox" value="genere" class="pref" />
-              <span>Stesso genere</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="checkbox" value="abitudini" class="pref" />
-              <span>Abitudini simili</span>
-            </label>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 7: Build your Mate -->
-          <div class="step space-y-4 hidden">
-            <h3 class="text-lg font-semibold text-center">Build your Mate</h3>
-            <p id="mateIntro" class="text-sm text-center text-gray-600">Lui è Marco... potrebbe essere il tuo prossimo coinquilino. Come vorresti che fosse?</p>
-            <div class="flex justify-center">
-              <img id="mateAvatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar coinquilino ideale" class="w-24 h-24 rounded-full shadow mb-4" />
-            </div>
-            <div id="traitWrapper" class="flex flex-wrap gap-2 justify-center"></div>
-            <p id="traitError" class="text-red-500 text-sm hidden text-center">Puoi selezionare al massimo 5 tratti</p>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" class="next-btn bg-blue-600 text-white px-4 py-2 rounded">Avanti</button>
-            </div>
-          </div>
-          <!-- Step 8 -->
-          <div class="step space-y-4 hidden">
-            <span class="text-gray-700">Scegli il profilo che preferisci</span>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <div class="profile-card flex-1 border rounded-lg shadow p-4 text-center hover:shadow-md">
-                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Marco" class="w-24 h-24 mx-auto rounded-full mb-2" />
-                <h4 class="font-semibold">Marco</h4>
-                <p class="text-xs text-gray-500 mb-1">Sportivo · Notturno · Pulito</p>
-                <p class="text-sm mb-3">Ama la bici e cucinare piatti tipici.</p>
-                <button type="button" data-value="Marco" class="choose-btn bg-blue-600 text-white px-4 py-2 rounded">Scegli</button>
-              </div>
-              <div class="profile-card flex-1 border rounded-lg shadow p-4 text-center hover:shadow-md">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Luca" class="w-24 h-24 mx-auto rounded-full mb-2" />
-                <h4 class="font-semibold">Luca</h4>
-                <p class="text-xs text-gray-500 mb-1">Calmo · Mattiniero · Ordinato</p>
-                <p class="text-sm mb-3">Lettore accanito e amante delle passeggiate.</p>
-                <button type="button" data-value="Luca" class="choose-btn bg-blue-600 text-white px-4 py-2 rounded">Scegli</button>
-              </div>
-            </div>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-            </div>
-          </div>
-          <!-- Step 9 -->
-          <div class="step space-y-4 hidden">
-            <h3 class="text-lg font-semibold">Riepilogo</h3>
-            <ul class="text-sm space-y-1" id="summary"></ul>
-            <div class="flex justify-between">
-              <button type="button" class="prev-btn text-gray-600 px-4 py-2">Indietro</button>
-              <button type="button" id="confirmBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Conferma</button>
-            </div>
-          </div>
-        </form>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mate Wizard</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;display:flex;justify-content:center;padding:20px;}
+form{max-width:480px;width:100%;position:relative;}
+.step{display:none;}
+.card{background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;gap:16px;}
+.q{display:flex;flex-direction:column;gap:6px;}
+.pill-group{display:flex;flex-wrap:wrap;gap:8px;}
+.pill-group button{border:1px solid #ccc;background:#fff;border-radius:9999px;padding:8px 12px;cursor:pointer;}
+.pill-group button.selected{background:#ffebf0;color:#ff3f60;border-color:#ff5864;}
+.card-select{display:flex;gap:12px;}
+.select-card{flex:1;padding:20px;border:1px solid #ccc;border-radius:16px;box-shadow:0 2px 4px rgba(0,0,0,0.05);text-align:center;font-size:18px;cursor:pointer;}
+.select-card.selected{border:2px solid #ff5864;}
+.btn{background:#ff5864;color:#fff;border:none;padding:12px;border-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,0.15);cursor:pointer;width:100%;font-size:16px;}
+.btn:disabled{opacity:0.5;cursor:not-allowed;}
+.progress{position:fixed;top:0;left:0;height:4px;width:0;background:#ff5864;transition:width .3s;z-index:10;}
+.welcome{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:40px 20px;}
+.welcome ul{list-style:none;padding:0;margin:20px 0;display:flex;flex-direction:column;gap:12px;font-size:14px;}
+.welcome li::before{content:"✔️";color:#ff5864;margin-right:6px;}
+.gradient-btn{background:linear-gradient(90deg,#ff5864,#ff3f7d);color:#fff;border:none;border-radius:9999px;width:90%;height:50px;font-size:16px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+.table-card table{width:100%;border-collapse:collapse;font-size:14px;}
+.table-card th{text-align:center;padding-bottom:8px;}
+.table-card td{padding:8px;vertical-align:top;}
+.table-card .micro{font-size:12px;color:#666;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.chip{border:1px solid #ccc;border-radius:9999px;padding:8px 12px;background:#fff;cursor:pointer;}
+.chip.selected{background:#ffebf0;border-color:#ff5864;color:#ff3f60;}
+#counter{text-align:right;margin-bottom:8px;font-size:14px;color:#333;}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<form id="wizard" action="#">
+<!-- Step 1 -->
+<div class="step" id="step1">
+  <div class="card">
+    <h2>Step 1 – Quick profile</h2>
+    <div class="q">
+      <label>My name is …</label>
+      <input type="text" name="fullname" placeholder="Type your name" required>
+    </div>
+    <div class="q">
+      <label>My birthday is …</label>
+      <input type="date" name="birthday" required>
+    </div>
+    <div class="q">
+      <label>I’m a …</label>
+      <div class="pill-group" id="gender">
+        <button type="button" data-value="M">♂️ M</button>
+        <button type="button" data-value="F">♀️ F</button>
+        <button type="button" data-value="Altro">⚧️ Altro</button>
+        <button type="button" data-value="Prefer not to say">🤐 Prefer not to say</button>
       </div>
-    </section>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const steps = document.querySelectorAll('.step');
-        const progressBar = document.getElementById('progressBar');
-        const stepText = document.getElementById('stepText');
-        const stepPercent = document.getElementById('stepPercent');
-        const formData = JSON.parse(localStorage.getItem('mateForm')) || {};
-        const hobbies = ['Musica','Sport','Cucina','Lettura','Gaming','Viaggi'];
-        const hobbyWrapper = document.getElementById('hobbyWrapper');
-        hobbies.forEach(h => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.textContent = h;
-          btn.className = 'hobby-btn px-3 py-1 rounded-full bg-gray-100 hover:bg-blue-50';
-          btn.dataset.value = h;
-          hobbyWrapper.appendChild(btn);
-        });
-
-        const traits = ['\uD83E\uDDFC Pulito','\uD83C\uDF99\uFE0F Tranquillo','\uD83E\uDD73 Socievole','\uD83C\uDFC3 Sportivo','\uD83C\uDF73 Ama cucinare','\uD83D\uDCDA Studio intenso','\uD83C\uDFE0 Ama stare a casa','\uD83D\uDEAA Riservato','\uD83D\uDECF\uFE0F Notturno','\u2600\uFE0F Mattiniero'];
-        const traitWrapper = document.getElementById('traitWrapper');
-        const traitError = document.getElementById('traitError');
-        traits.forEach(t=>{
-          const b=document.createElement('button');
-          b.type='button';
-          b.textContent=t;
-          b.className='trait-btn px-3 py-1 rounded-full border bg-gray-100 hover:bg-blue-50';
-          b.dataset.value=t;
-          traitWrapper.appendChild(b);
-        });
-
-        const mateNames=['Marco','Chiara','Luca','Sara','Giulia','Andrea'];
-        const randomName=mateNames[Math.floor(Math.random()*mateNames.length)];
-        const gender=Math.random()<0.5?'men':'women';
-        const num=Math.floor(Math.random()*90);
-        const mateAvatar=document.getElementById('mateAvatar');
-        mateAvatar.src=`https://randomuser.me/api/portraits/${gender}/${num}.jpg`;
-        mateAvatar.alt=`${randomName} avatar`;
-        document.getElementById('mateIntro').textContent=`Lui \u00E8 ${randomName}... potrebbe essere il tuo prossimo coinquilino. Come vorresti che fosse?`;
-
-
-        let currentStep = 0;
-        showStep(currentStep);
-
-        document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', nextStep));
-        document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', prevStep));
-        document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', selectOption));
-        hobbyWrapper.addEventListener('click', toggleHobby);
-        traitWrapper.addEventListener('click', toggleTrait);
-        document.querySelectorAll('.choose-btn').forEach(btn => btn.addEventListener('click', () => chooseProfile(btn.dataset.value)));
-        document.getElementById('ordine').addEventListener('input', e => {
-          document.getElementById('ordineVal').textContent = e.target.value;
-        });
-        document.getElementById('descrizione').addEventListener('input', e => {
-          document.getElementById('charCount').textContent = e.target.value.length;
-        });
-        document.getElementById('confirmBtn').addEventListener('click', finish);
-
-        function showStep(i){
-          steps.forEach((s,idx)=>{s.classList.toggle('hidden', idx!==i);});
-          const percent = Math.round((i)/(steps.length-1)*100);
-          progressBar.style.width = percent + '%';
-          stepText.textContent = `Step ${i+1} di ${steps.length}`;
-          stepPercent.textContent = percent + '%';
-        }
-
-        function nextStep(){
-          saveData(currentStep);
-          if(currentStep < steps.length-1){
-            currentStep++;
-            showStep(currentStep);
-            if(currentStep === steps.length-1) updateSummary();
-          }
-        }
-
-        function prevStep(){
-          if(currentStep>0){
-            currentStep--;
-            showStep(currentStep);
-          }
-        }
-
-        function saveData(step){
-          switch(step){
-            case 0:
-              formData.nome = document.getElementById('nome').value.trim();
-              break;
-            case 1:
-              formData.ordine = document.getElementById('ordine').value;
-              break;
-            case 2:
-              formData.orario = document.querySelector('.option-btn.active')?.dataset.value || '';
-              break;
-            case 3:
-              formData.hobby = Array.from(document.querySelectorAll('.hobby-btn.active')).map(b=>b.dataset.value);
-              break;
-            case 4:
-              formData.descrizione = document.getElementById('descrizione').value.trim();
-              break;
-            case 5:
-              formData.coinquilino = Array.from(document.querySelectorAll('.pref:checked')).map(c=>c.value);
-              break;
-            case 6:
-              formData.preferenzeIdeali = Array.from(document.querySelectorAll('.trait-btn.active')).map(b=>b.dataset.value);
-              formData.nomeCoinquilinoIdeale = randomName;
-              break;
-            case 7:
-              // preferito salvato con chooseProfile
-              break;
-          }
-        }
-
-        function selectOption(e){
-          document.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('bg-blue-600','text-white','active'));
-          e.target.classList.add('bg-blue-600','text-white','active');
-          document.querySelectorAll('.step')[2].querySelector('.next-btn').disabled = false;
-        }
-
-        function toggleHobby(e){
-          if(e.target.classList.contains('hobby-btn')){
-            e.target.classList.toggle('bg-blue-600');
-            e.target.classList.toggle('text-white');
-            e.target.classList.toggle('active');
-          }
-        }
-
-        function toggleTrait(e){
-          if(e.target.classList.contains('trait-btn')){
-            if(e.target.classList.contains('active')){
-              e.target.classList.remove('bg-blue-600','text-white','border-blue-600','active');
-              traitError.classList.add('hidden');
-            }else{
-              if(document.querySelectorAll('.trait-btn.active').length>=5){
-                traitError.classList.remove('hidden');
-                return;
-              }
-              e.target.classList.add('bg-blue-600','text-white','border-blue-600','active');
-            }
-          }
-        }
-
-        function chooseProfile(name){
-          formData.preferito = name;
-          localStorage.setItem('preferito', name);
-          nextStep();
-        }
-
-        function updateSummary(){
-          saveData(7);
-          const ul = document.getElementById('summary');
-          ul.innerHTML = '';
-          ul.innerHTML += `<li><strong>Nome:</strong> ${formData.nome || ''}</li>`;
-          ul.innerHTML += `<li><strong>Ordine:</strong> ${formData.ordine || ''}</li>`;
-          ul.innerHTML += `<li><strong>Orario:</strong> ${formData.orario || ''}</li>`;
-          ul.innerHTML += `<li><strong>Hobby:</strong> ${(formData.hobby||[]).join(', ')}</li>`;
-          ul.innerHTML += `<li><strong>Descrizione:</strong> ${formData.descrizione || ''}</li>`;
-          ul.innerHTML += `<li><strong>Preferenze:</strong> ${(formData.coinquilino||[]).join(', ')}</li>`;
-          ul.innerHTML += `<li><strong>Coinquilino ideale:</strong> ${formData.nomeCoinquilinoIdeale || ''}</li>`;
-          ul.innerHTML += `<li><strong>Tratti ideali:</strong> ${(formData.preferenzeIdeali||[]).join(', ')}</li>`;
-          ul.innerHTML += `<li><strong>Profilo scelto:</strong> ${formData.preferito || ''}</li>`;
-        }
-
-        function finish(){
-          saveData(currentStep);
-          localStorage.setItem('mateForm', JSON.stringify(formData));
-          alert('Dati salvati!');
-          window.location.href = 'risultati.html';
-        }
-
-      });
-    </script>
-  </body>
+      <input type="hidden" name="gender">
+    </div>
+    <div class="q">
+      <label>I’m a …</label>
+      <div class="card-select" id="status">
+        <div class="select-card" data-value="Student">🎓 Student</div>
+        <div class="select-card" data-value="Worker">💼 Worker</div>
+      </div>
+      <input type="hidden" name="status">
+    </div>
+    <button type="button" class="btn" id="next1" disabled>Next</button>
+  </div>
+</div>
+<!-- Step 2 -->
+<div class="step" id="step2">
+  <div class="welcome">
+    <div style="text-align:center;">
+      <div style="font-size:32px;color:#ff5864;">🔥</div>
+      <h1>Welcome to MATE.</h1>
+      <p style="color:#666;font-weight:500;">Please follow these House Rules.</p>
+      <ul>
+        <li><strong>Be yourself.</strong> – Make sure your photos, age and bio are true to who you are.</li>
+        <li><strong>Stay safe.</strong> – Don’t be too quick to give out personal information.</li>
+        <li><strong>Play it cool.</strong> – Respect others and treat them as you would like to be treated.</li>
+        <li><strong>Be proactive.</strong> – Always report bad behaviour.</li>
+      </ul>
+    </div>
+    <button type="button" class="gradient-btn" id="agree">I Agree</button>
+  </div>
+</div>
+<!-- Step 3 -->
+<div class="step" id="step3">
+  <div class="card table-card">
+    <h2>Tell us about you &amp; your ideal mate</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th>Io</th>
+        <th>Il Mio Mate</th>
+      </tr>
+      <tr>
+        <td><strong>🕒 Ritmo di vita</strong><div class="micro">Quando la casa prende vita?</div></td>
+        <td>
+          <div class="pill-group" data-name="rhythm_me">
+            <button type="button" data-value="Mattina presto">🌅 Mattina presto</button>
+            <button type="button" data-value="Classico 9-19">☀️ Classico 9-19</button>
+            <button type="button" data-value="Sera tardi">🌆 Sera tardi</button>
+            <button type="button" data-value="Notturno">🌙 Notturno</button>
+          </div>
+          <input type="hidden" name="rhythm_me">
+        </td>
+        <td>
+          <div class="pill-group" data-name="rhythm_mate">
+            <button type="button" data-value="Mattina presto">🌅 Mattina presto</button>
+            <button type="button" data-value="Classico 9-19">☀️ Classico 9-19</button>
+            <button type="button" data-value="Sera tardi">🌆 Sera tardi</button>
+            <button type="button" data-value="Notturno">🌙 Notturno</button>
+          </div>
+          <input type="hidden" name="rhythm_mate">
+        </td>
+      </tr>
+      <tr>
+        <td><strong>🧼 Ordine &amp; Pulizie</strong><div class="micro">Quanto dev’essere tirata a lucido?</div></td>
+        <td>
+          <div class="pill-group" data-name="clean_me">
+            <button type="button" data-value="Relax totale">😎 Relax totale</button>
+            <button type="button" data-value="Pulizie weekend">🧹 Pulizie weekend</button>
+            <button type="button" data-value="Calendario settimanale">📅 Calendario settimanale</button>
+            <button type="button" data-value="OCD mode">🫧 OCD mode</button>
+          </div>
+          <input type="hidden" name="clean_me">
+        </td>
+        <td>
+          <div class="pill-group" data-name="clean_mate">
+            <button type="button" data-value="Relax totale">😎 Relax totale</button>
+            <button type="button" data-value="Pulizie weekend">🧹 Pulizie weekend</button>
+            <button type="button" data-value="Calendario settimanale">📅 Calendario settimanale</button>
+            <button type="button" data-value="OCD mode">🫧 OCD mode</button>
+          </div>
+          <input type="hidden" name="clean_mate">
+        </td>
+      </tr>
+      <tr>
+        <td><strong>🗣️ Socialità &amp; Rumore</strong><div class="micro">Casa = rifugio o salotto?</div></td>
+        <td>
+          <div class="pill-group" data-name="social_me">
+            <button type="button" data-value="Silenzio monastico">🤫 Silenzio monastico</button>
+            <button type="button" data-value="Due chiacchiere">🙂 Due chiacchiere</button>
+            <button type="button" data-value="Cene insieme">🍝 Cene insieme</button>
+            <button type="button" data-value="Festa continua">🎉 Festa continua</button>
+          </div>
+          <input type="hidden" name="social_me">
+        </td>
+        <td>
+          <div class="pill-group" data-name="social_mate">
+            <button type="button" data-value="Silenzio monastico">🤫 Silenzio monastico</button>
+            <button type="button" data-value="Due chiacchiere">🙂 Due chiacchiere</button>
+            <button type="button" data-value="Cene insieme">🍝 Cene insieme</button>
+            <button type="button" data-value="Festa continua">🎉 Festa continua</button>
+          </div>
+          <input type="hidden" name="social_mate">
+        </td>
+      </tr>
+      <tr>
+        <td><strong>🚭 Abitudini speciali</strong><div class="micro">Quali ‘deal-breaker’ hai?</div></td>
+        <td>
+          <div class="pill-group" data-name="habit_me">
+            <button type="button" data-value="No fumo né animali">🚫 No fumo né animali</button>
+            <button type="button" data-value="Ok balcone + pets">🌿 Ok balcone + pets</button>
+            <button type="button" data-value="Solo animali / no fumo">🐾 Solo animali / no fumo</button>
+            <button type="button" data-value="Fumo in casa & pet friendly">💨 Fumo in casa & pet friendly</button>
+          </div>
+          <input type="hidden" name="habit_me">
+        </td>
+        <td>
+          <div class="pill-group" data-name="habit_mate">
+            <button type="button" data-value="No fumo né animali">🚫 No fumo né animali</button>
+            <button type="button" data-value="Ok balcone + pets">🌿 Ok balcone + pets</button>
+            <button type="button" data-value="Solo animali / no fumo">🐾 Solo animali / no fumo</button>
+            <button type="button" data-value="Fumo in casa & pet friendly">💨 Fumo in casa & pet friendly</button>
+          </div>
+          <input type="hidden" name="habit_mate">
+        </td>
+      </tr>
+      <tr>
+        <td><strong>💸 Gestione spese</strong><div class="micro">Come dividiamo i costi?</div></td>
+        <td>
+          <div class="pill-group" data-name="money_me">
+            <button type="button" data-value="Tutto 50-50">⚖️ Tutto 50-50</button>
+            <button type="button" data-value="Proporzione uso">📊 Proporzione uso</button>
+            <button type="button" data-value="Cassa comune mensile">💰 Cassa comune mensile</button>
+            <button type="button" data-value="App pagamenti condivisi">📲 App pagamenti condivisi</button>
+          </div>
+          <input type="hidden" name="money_me">
+        </td>
+        <td>
+          <div class="pill-group" data-name="money_mate">
+            <button type="button" data-value="Tutto 50-50">⚖️ Tutto 50-50</button>
+            <button type="button" data-value="Proporzione uso">📊 Proporzione uso</button>
+            <button type="button" data-value="Cassa comune mensile">💰 Cassa comune mensile</button>
+            <button type="button" data-value="App pagamenti condivisi">📲 App pagamenti condivisi</button>
+          </div>
+          <input type="hidden" name="money_mate">
+        </td>
+      </tr>
+    </table>
+    <button type="button" class="btn" id="next3" style="display:none;">Next</button>
+  </div>
+</div>
+<!-- Step 4 -->
+<div class="step" id="step4">
+  <div class="card">
+    <h2>Build your perfect Mate</h2>
+    <div id="counter">0/8 chosen</div>
+    <div class="chips">
+      <div class="chip" data-value="Creativo">💡 Creativo</div>
+      <div class="chip" data-value="Tranquillo">🧘 Tranquillo</div>
+      <div class="chip" data-value="Organizzato">🎯 Organizzato</div>
+      <div class="chip" data-value="Ironico">😂 Ironico</div>
+      <div class="chip" data-value="Sportivo">🏃 Sportivo</div>
+      <div class="chip" data-value="Festaiolo">🥳 Festaiolo</div>
+      <div class="chip" data-value="Salutista">🥗 Salutista</div>
+      <div class="chip" data-value="Maniaco pulizie">🧼 Maniaco pulizie</div>
+      <div class="chip" data-value="Studioso">📚 Studioso</div>
+      <div class="chip" data-value="Gamer">🎮 Gamer</div>
+      <div class="chip" data-value="Artista">🎨 Artista</div>
+      <div class="chip" data-value="Nerd">🤓 Nerd</div>
+      <div class="chip" data-value="Pigro">🛋️ Pigro</div>
+      <div class="chip" data-value="Eco-friendly">🌱 Eco-friendly</div>
+      <div class="chip" data-value="Cuoco">🍳 Cuoco</div>
+      <div class="chip" data-value="Viaggiatore">🌏 Viaggiatore</div>
+      <div class="chip" data-value="Risparmiatore">🤑 Risparmiatore</div>
+      <div class="chip" data-value="Lettore">📖 Lettore</div>
+      <div class="chip" data-value="Ambizioso">🌟 Ambizioso</div>
+      <div class="chip" data-value="Pet lover">🐶 Pet lover</div>
+    </div>
+    <input type="hidden" name="traits">
+    <button type="submit" class="gradient-btn">Finish &amp; See Matches</button>
+  </div>
+</div>
+</form>
+<script>
+const steps = document.querySelectorAll('.step');
+let current = 0;
+const progress = document.getElementById('progress');
+function showStep(n){
+  steps.forEach((s,i)=>{s.style.display=i===n?'block':'none';});
+  progress.style.width=((n+1)/steps.length*100)+'%';
+  current=n;
+}
+showStep(0);
+// Step1 logic
+const fullname=document.querySelector('[name=fullname]');
+const birthday=document.querySelector('[name=birthday]');
+const genderInput=document.querySelector('[name=gender]');
+const statusInput=document.querySelector('[name=status]');
+const next1=document.getElementById('next1');
+function checkStep1(){
+  if(fullname.value.trim() && birthday.value && genderInput.value && statusInput.value){
+    next1.disabled=false;
+  }else{
+    next1.disabled=true;
+  }
+}
+fullname.addEventListener('input',checkStep1);
+birthday.addEventListener('input',checkStep1);
+document.querySelectorAll('#gender button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#gender button').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    genderInput.value=btn.dataset.value;
+    checkStep1();
+  });
+});
+document.querySelectorAll('#status .select-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    document.querySelectorAll('#status .select-card').forEach(c=>c.classList.remove('selected'));
+    card.classList.add('selected');
+    statusInput.value=card.dataset.value;
+    checkStep1();
+  });
+});
+next1.addEventListener('click',()=>{if(!next1.disabled)showStep(1);});
+// Step2
+document.getElementById('agree').addEventListener('click',()=>{showStep(2);});
+// Step3
+const groups=document.querySelectorAll('#step3 .pill-group');
+function checkStep3(){
+  let valid=true;
+  groups.forEach(g=>{if(!g.nextElementSibling.value)valid=false;});
+  document.getElementById('next3').style.display=valid?'block':'none';
+}
+groups.forEach(g=>{
+  g.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      g.querySelectorAll('button').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      g.nextElementSibling.value=btn.dataset.value;
+      checkStep3();
+    });
+  });
+});
+document.getElementById('next3').addEventListener('click',()=>{showStep(3);});
+// Step4 chips
+const chips=document.querySelectorAll('.chip');
+const counter=document.getElementById('counter');
+const traitsInput=document.querySelector('[name=traits]');
+function updateChips(){
+  const selected=Array.from(chips).filter(c=>c.classList.contains('selected')).map(c=>c.dataset.value);
+  traitsInput.value=selected.join(',');
+  counter.textContent=selected.length+'/8 chosen';
+}
+chips.forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    if(chip.classList.contains('selected')){
+      chip.classList.remove('selected');
+      updateChips();
+      return;
+    }
+    if(document.querySelectorAll('.chip.selected').length>=8)return;
+    chip.classList.add('selected');
+    updateChips();
+  });
+});
+updateChips();
+// Submit
+document.getElementById('wizard').addEventListener('submit',e=>{
+  e.preventDefault();
+  const data=Object.fromEntries(new FormData(e.target));
+  alert(JSON.stringify(data));
+});
+</script>
+</body>
 </html>
+
