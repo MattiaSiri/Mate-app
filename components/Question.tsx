@@ -1,16 +1,13 @@
 import React, { useRef } from 'react';
-import AnswerTile, { AnswerTileProps } from './AnswerTile';
+import AnswerTile from './AnswerTile';
 
 export interface QuestionProps {
   question: string;
-  options: Array<Omit<AnswerTileProps, 'selected' | 'onSelect'>>;
-  selectedValue: string | number;
-  onChange: (value: string | number) => void;
+  options: { label: string; icon: React.ReactNode; value: string }[];
+  selectedValue: string;
+  onChange: (value: string) => void;
 }
 
-/**
- * Display a question with selectable answer tiles.
- */
 export default function Question({
   question,
   options,
@@ -38,11 +35,12 @@ export default function Question({
   };
 
   return (
-    <div role="radiogroup" className="flex flex-wrap gap-4" onKeyDown={handleKeyDown}>
+    <div role="radiogroup" aria-label={question} className="flex flex-wrap gap-4" onKeyDown={handleKeyDown}>
       {options.map((opt, idx) => (
         <AnswerTile
           key={opt.value}
-          {...opt}
+          label={opt.label}
+          icon={opt.icon}
           selected={selectedValue === opt.value}
           onSelect={() => onChange(opt.value)}
           ref={(el) => (itemsRef.current[idx] = el)}
