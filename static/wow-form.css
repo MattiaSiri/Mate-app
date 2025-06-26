@@ -1,0 +1,45 @@
+.tile {
+    @apply rounded-full border border-primary px-4 py-2 flex items-center gap-2 transition-transform transition-shadow duration-150 ease-in-out;
+}
+.tile:hover:not(.selected) {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgb(0 0 0 / .15);
+}
+.tile.selected {
+    @apply bg-selected text-onSelected border-transparent;
+}
+.progress-bar {
+    position: sticky;
+    top: 0;
+    height: 4px;
+}
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--brand) 0%, var(--brand-light) 100%);
+    width: var(--progress, 0%);
+    transition: width .3s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    .progress-bar::after { transition: none; }
+}
+.avatar {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #eee;
+    margin: auto;
+    overflow: hidden;
+}
+.sticker {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+}
+.counter {
+    text-align: center;
+    font-size: 0.875rem;
+}
