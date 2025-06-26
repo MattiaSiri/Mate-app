@@ -33,6 +33,7 @@ button.next:disabled{opacity:0.5;cursor:not-allowed;}
 .counter{text-align:center;font-size:14px;}
 .btn-row{display:flex;gap:16px;}
 </style>
+<link rel="stylesheet" href="static/wow-form.css">
 </head>
 <body>
 <form id="wizard">
@@ -306,7 +307,9 @@ back8.addEventListener('click',()=>showStep(6));
 finish.addEventListener('click',()=>{
   alert(JSON.stringify(formData));
 });
-updateTraits();
-</script>
-</body>
+  updateTraits();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script type="module" src="static/form-enhancer.js"></script>
+  </body>
 </html>
