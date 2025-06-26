@@ -1,50 +1,59 @@
-import React, { ReactNode, forwardRef } from 'react';
+import React, { ReactNode, forwardRef, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { fire } from './ConfettiBurst';
 
 export interface AnswerTileProps {
   label: string;
-  icon?: ReactNode;
-  value: string | number;
+  icon: ReactNode;
   selected: boolean;
   onSelect: () => void;
 }
 
-/**
- * Render a selectable tile acting as a radio button.
- */
 const AnswerTile = forwardRef<HTMLLabelElement, AnswerTileProps>(
-  ({ label, icon, value, selected, onSelect }, ref) => {
+  ({ label, icon, selected, onSelect }, ref) => {
+    const prefersReduced = useReducedMotion();
+    const labelRef = useRef<HTMLLabelElement | null>(null);
+
+    const handleClick = () => {
+      onSelect();
+      if (!prefersReduced && labelRef.current) {
+        const rect = labelRef.current.getBoundingClientRect();
+        fire(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      }
+    };
+
     return (
-      <label
-        ref={ref}
+      <motion.label
+        ref={(node) => {
+          labelRef.current = node;
+          if (typeof ref === 'function') ref(node);
+          else if (ref) (ref as React.MutableRefObject<HTMLLabelElement | null>).current = node;
+        }}
         role="radio"
         aria-checked={selected}
         tabIndex={0}
         className={
-          `w-full max-w-[300px] h-[96px] px-4 py-3 rounded-[8px] border ` +
+          `min-w-[140px] min-h-[56px] px-4 py-2 rounded-full border border-primary ` +
           `flex flex-col items-center justify-center transition-colors ` +
-          `border-primary text-primary ` +
-          `${selected ? 'bg-selected text-onSelected' : 'bg-transparent'} ` +
-          `${!selected ? 'hover:shadow-md cursor-pointer' : ''} ` +
-          `focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary`
+          `${selected ? 'bg-selected text-onSelected border-transparent' : 'text-primary'} ` +
+          `focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
         }
-        onClick={onSelect}
+        initial={false}
+        whileHover={!prefersReduced && !selected ? { scale: 1.05, boxShadow: '0 4px 6px rgba(0,0,0,0.1)' } : {}}
+        whileTap={!prefersReduced && !selected ? { scale: 0.97 } : {}}
+        transition={{ type: 'spring', stiffness: 300, damping: 20, duration: 0.15 }}
+        onClick={handleClick}
         onKeyDown={(e) => {
           if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
-            onSelect();
+            handleClick();
           }
         }}
       >
-        <input
-          type="radio"
-          className="hidden"
-          value={value}
-          checked={selected}
-          onChange={() => {}}
-        />
-        {icon && <span className="mb-1">{icon}</span>}
-        <span>{label}</span>
-      </label>
+        <input type="radio" hidden checked={selected} onChange={() => {}} />
+        <span className="mb-1 pointer-events-none">{icon}</span>
+        <span className="pointer-events-none">{label}</span>
+      </motion.label>
     );
   }
 );
