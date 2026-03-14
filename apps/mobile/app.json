@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Mate",
+    "slug": "mate-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mateapp.mobile"
+    },
+    "android": {
+      "package": "com.mateapp.mobile"
+    }
+  }
+}
